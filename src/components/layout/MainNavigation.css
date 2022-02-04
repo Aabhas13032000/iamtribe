@@ -1,0 +1,202 @@
+.header {
+    /* background-color: var(--secondary-color) !important; */
+    /* background-color: transparent !important; */
+    background-color: var(--primary-color) !important;
+    width: 100% !important;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    overflow: hidden;
+    transform: translateY(-100%);
+    /* transition: 0.3s ease-in; */
+    animation-name: loadnavigation;
+    animation-delay: 1.8s;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+/* Keyframes for header */
+@keyframes loadnavigation {
+    from {
+        transform: translateY(-100%) scale(1);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
+    }
+}
+/*  */
+
+
+.header .container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 10px 20px 10px;
+}
+
+.header .container .logo {
+    width: 33.33%;
+    order: 0;
+    display: flex;
+    align-items: center;
+}
+
+.header .container .logo h3 {
+    margin: 0;
+    color: white;
+}
+
+.header .container .links {
+    width: 33.33%;
+    order: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .container .links ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0 auto;
+    display: block;
+}
+
+.header .container .links ul li {
+    float: left;
+    padding: 0px 10px;
+}
+
+.header .container .links ul li .inside_links {
+    color: #808080;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.active {
+    color: white !important;
+}
+
+.header .container .login {
+    width: 33.33%;
+    order: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header .container .login ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+.header .container .login ul li {
+    float: left;
+    margin-right: 20px;
+    font-family: Hellix-SemiBold;
+    font-size: 16px;
+}
+
+.header .container .login ul li:nth-child(2) {
+    margin-right: 0;
+}
+
+.header .container .login ul li:nth-child(3) {
+    display: none;
+}
+
+.header .container .login ul li .portfolio {
+    border: 1px solid var(--contrast-color);
+    padding: 10px 16px;
+    border-radius: 10px;
+    color: var(--contrast-color);
+    display: block;
+}
+
+.header .container .login ul li .portfolio-img {
+    border: 0px;
+    padding: 0px 0px;
+    display: block;
+}
+
+.header .container .login ul li .portfolio-img .card {
+    border: 0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.header .container .login ul li .portfolio-img .card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header .container .login ul li .get_in_touch {
+    background-color: var(--contrast-color);
+    padding: 10px 16px;
+    border-radius: 10px;
+    color: var(--primary-color);
+    display: block;
+}
+
+.header .container .login ul li .toggle_button {
+    padding: 10px 12px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid var(--contrast-color);
+    display: none;
+}
+
+.header .container .login ul li .toggle_button .iconify {
+    color: var(--contrast-color);
+    height: 20px;
+    width: 20px;
+}
+
+
+/* Media Queries */
+
+/* Max Width :  992px */
+@media screen and (max-width: 1024px) {
+
+    .header .container .logo {
+        width: 25%;
+    }
+
+    .header .container .links {
+        width: 0%;
+    }
+
+    .header .container .login {
+        width: 75%;
+    }
+
+    .header .container .links ul {
+        display: none;
+    }
+
+    .header .container .login ul li{
+        margin-right: 0;
+    }
+    
+    .header .container .login ul li .portfolio {
+        display: none;
+    }
+    
+    .header .container .login ul li .get_in_touch {
+        display: none;
+    }
+
+    .header .container .login ul li .toggle_button {
+        display: block;
+    }
+
+    .header .container .login ul li:nth-child(3) {
+        display: block;
+    }
+}

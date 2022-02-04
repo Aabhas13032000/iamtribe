@@ -1,13 +1,58 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face { font-family: Hellix-Regular; src: url('./fonts/Hellix/Hellix-Regular.ttf'); }
+@font-face { font-family: Hellix-Bold; src: url('./fonts/Hellix/Hellix-Bold.ttf'); }
+@font-face { font-family: Hellix-Black; src: url('./fonts/Hellix/Hellix-Black.ttf'); }
+@font-face { font-family: Hellix-Light; src: url('./fonts/Hellix/Hellix-Light.ttf'); }
+@font-face { font-family: Hellix-ExtraBold; src: url('./fonts/Hellix/Hellix-ExtraBold.ttf'); }
+@font-face { font-family: Hellix-Medium; src: url('./fonts/Hellix/Hellix-Medium.ttf'); }
+@font-face { font-family: Hellix-Thin; src: url('./fonts/Hellix/Hellix-Thin.ttf'); }
+@font-face { font-family: Hellix-SemiBold; src: url('./fonts/Hellix/Hellix-SemiBold.ttf'); }
+
+@font-face { font-family: Gilroy-Regular; src: url('./fonts/Gilroy/Gilroy-Regular.ttf'); }
+@font-face { font-family: Gilroy-Bold; src: url('./fonts/Gilroy/Gilroy-Bold.ttf'); }
+@font-face { font-family: Gilroy-Black; src: url('./fonts/Gilroy/Gilroy-Black.ttf'); }
+@font-face { font-family: Gilroy-Light; src: url('./fonts/Gilroy/Gilroy-Light.ttf'); }
+@font-face { font-family: Gilroy-ExtraBold; src: url('./fonts/Gilroy/Gilroy-ExtraBold.ttf'); }
+@font-face { font-family: Gilroy-Medium; src: url('./fonts/Gilroy/Gilroy-Medium.ttf'); }
+@font-face { font-family: Gilroy-Thin; src: url('./fonts/Gilroy/Gilroy-Thin.ttf'); }
+@font-face { font-family: Gilroy-SemiBold; src: url('./fonts/Gilroy/Gilroy-SemiBold.ttf'); }
+
+
+:root {
+    --primary-color: #0E1F30;
+    --secondary-color: #172839;
+    --contrast-color: #FFF850;
+    --smallText-color: #DBDBDB;
+    --headings-color: #FFFFFF;
+    --adminSearchBox-color: #F8F8F8;
+    --deleteButton-color: #FF3D3D;
+    --unselectedSidebarText-color: #F4F4F4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}  
+
+html ,body {
+    margin: 0;
+    padding: 0;
+    height: 100% !important;
+    overflow: hidden;
+    font-family: Hellix-Regular;
+    background-color: var(--primary-color);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body::-webkit-scrollbar{
+    width: 0;
+}
+
+.row {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
 }

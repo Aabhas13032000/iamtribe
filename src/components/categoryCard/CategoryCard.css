@@ -1,0 +1,54 @@
+.column {
+    padding: 20px;
+    background-color: transparent;
+}
+
+.column .card {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 400px;
+    border: 0;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: 0.3s ease;
+}
+
+.column .card:hover {
+    transform: translateY(-20px);
+}
+
+.column .card img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.column .heading {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Max Width :  768px */
+@media screen and (max-width: 768px) {
+    .column .card {
+        height: 200px;
+    }
+}
+
+/* Max Width :  576px */
+@media screen and (max-width: 576px) {
+    .column {
+        padding: 10px;
+    }
+
+    .column .card {
+        height: 150px;
+    }
+
+    .column .heading h5 {
+        font-size: 16px;
+    }
+}

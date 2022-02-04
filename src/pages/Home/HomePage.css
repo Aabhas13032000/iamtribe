@@ -1,0 +1,509 @@
+.home {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 1;
+    padding: 0px 0px;
+    background-color: var(--primary-color);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.popup_message {
+    position: absolute;
+    z-index: 100;
+    top: 10px;
+    background-color: rgba(0,0,0,1);
+    display: inline-block;
+    border-radius: 8px;
+    padding: 15px 20px;
+    left: 50%;
+    transform: translate(-50%,-130%);
+    color: white;
+    opacity: 0;
+    transition: 0.3s ease-in;
+}
+
+.activepopup_message {
+    opacity: 1;
+    transform: translate(-50%,0%);
+}
+
+.popup_message p {
+    margin: 0;
+    text-align: center;
+}
+
+
+.loader {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.home .firstSection {
+    padding: 0;
+    color: white;
+    background-color: var(--primary-color);
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    /* border: 1px solid black; */
+}
+
+.home .firstSection .abstract_image {
+    position: absolute;
+    bottom: 0%;
+    right: 25%;
+    opacity: 0;
+    z-index: 0;
+    width: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+    /* transform: translateY(-50%); */
+    animation-name: imageanimation;
+    animation-delay: 1.8s;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.home .firstSection .abstract_image img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Keyframes for h1 */
+@keyframes imageanimation {
+    from {
+        /* transform: translateY(-100%) scale(1); */
+        bottom: 0%;
+        opacity: 0;
+    }
+    to {
+        /* transform: translateY(0%) scale(1); */
+        bottom: 10%;
+        opacity: 1;
+    }
+}
+/*  */
+
+.home .firstSection .abstract_image2 {
+    position: absolute;
+    bottom: 0%;
+    right: 0;
+    opacity: 0;
+    z-index: 0;
+    width: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+    animation-name: image2animation;
+    animation-delay: 1.3s;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.home .firstSection .abstract_image2 img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Keyframes for h1 */
+@keyframes image2animation {
+    from {
+        /* transform: translateY(-100%) scale(1); */
+        bottom: 0%;
+        opacity: 0;
+    }
+    to {
+        /* transform: translateY(0%) scale(1); */
+        bottom: 35%;
+        opacity: 1;
+    }
+}
+/*  */
+
+.home .firstSection .row {
+    height: 100%;
+    /* background-color: tomato; */
+    background-color: transparent;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.home .firstSection .row .col-12 {
+    padding: 0;
+    /* background-color: aqua; */
+}
+
+.home .firstSection .row .col-12 .first_animation_box {
+    /* background-color: blue; */
+    /* background-color: var(--primary-color); */
+    background-color: transparent;
+    padding: 10px 0px;
+    overflow: hidden;
+}
+
+.home .firstSection .row .col-12 .first_animation_box h1 {
+    margin: 0;
+    opacity: 0;
+    animation-name: textanimation;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.home .firstSection .row .col-12 .second_animation_box {
+    /* background-color: var(--primary-color); */
+    background-color: transparent;
+    padding: 10px 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+.home .firstSection .row .col-12 .second_animation_box .box{
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary-color);
+    top: 0;
+    left: 0;
+    animation-name: boxanimation;
+    animation-delay: 0.3s;
+    animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.home .firstSection .row .col-12 .second_animation_box h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-size: bolder;
+    font-family: Hellix-Bold;
+    /* position: absolute;
+    z-index: 0; */
+}
+
+.home .firstSection .row .col-12 .third_animation_box {
+    /* background-color: var(--primary-color); */
+    background-color: transparent;
+    padding: 10px 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+.home .firstSection .row .col-12 .third_animation_box .link {
+    color: white;
+    font-size: 25px;
+    transition: 0.3s ease-in;
+}
+
+.home .firstSection .row .col-12 .third_animation_box .link:hover {
+    text-decoration: underline;
+}
+
+.home .firstSection .row .col-12 .third_animation_box .box{
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary-color);
+    top: 0;
+    left: 0;
+    animation-name: boxanimation;
+    animation-delay: 0.8s;
+    animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.home .firstSection .row .col-lg-4 img{
+    width: 100%;
+    /* height: 100%; */
+}
+
+/* Keyframes for h1 */
+@keyframes textanimation {
+    from {
+        /* transform: translateY(-100%) scale(1); */
+        opacity: 0;
+    }
+    to {
+        /* transform: translateY(0%) scale(1); */
+        opacity: 1;
+    }
+}
+/*  */
+
+/* Keyframes for box */
+@keyframes boxanimation {
+    from {
+        transform: translateX(0%) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%) scale(1);
+        opacity: 1;
+    }
+}
+/*  */
+
+
+.home .secondSection {
+    padding: 0 20px;
+    color: white;
+    background-color: var(--primary-color);
+    overflow: hidden;
+    width: 100%;
+}
+
+
+/* Max Width :  1024px */
+@media screen and (max-width: 1024px) {
+
+
+    .home .firstSection .abstract_image {
+        right: 30%;
+    }
+
+    .home .firstSection .abstract_image2 {
+        right: -2%;
+    }
+
+    /* Keyframes for h1 */
+    @keyframes imageanimation {
+        from {
+            /* transform: translateY(-100%) scale(1); */
+            bottom: 0%;
+            opacity: 0;
+        }
+        to {
+            /* transform: translateY(0%) scale(1); */
+            bottom: 5%;
+            opacity: 1;
+        }
+    }
+    /*  */
+
+
+    /* Keyframes for h1 */
+    @keyframes image2animation {
+        from {
+            /* transform: translateY(-100%) scale(1); */
+            bottom: 0%;
+            opacity: 0;
+        }
+        to {
+            /* transform: translateY(0%) scale(1); */
+            bottom: 38%;
+            opacity: 1;
+        }
+    }
+    /*  */
+
+}
+
+
+/* Max Width :  992px */
+@media screen and (max-width: 992px) {
+
+    .home .secondSection {
+        padding: 0 0px;
+    }
+
+    .home .firstSection .abstract_image {
+        right: 35%;
+    }
+
+    .home .firstSection .abstract_image2 {
+        right: -6%;
+    }
+
+    /* Keyframes for h1 */
+    @keyframes imageanimation {
+        from {
+            /* transform: translateY(-100%) scale(1); */
+            bottom: 0%;
+            opacity: 0;
+        }
+        to {
+            /* transform: translateY(0%) scale(1); */
+            bottom: 5%;
+            opacity: 1;
+        }
+    }
+    /*  */
+
+
+    /* Keyframes for h1 */
+    @keyframes image2animation {
+        from {
+            /* transform: translateY(-100%) scale(1); */
+            bottom: 0%;
+            opacity: 0;
+        }
+        to {
+            /* transform: translateY(0%) scale(1); */
+            bottom: 38%;
+            opacity: 1;
+        }
+    }
+    /*  */
+
+}
+
+
+/* Max Width :  756px */
+@media screen and (max-width: 576px) {
+
+    .home .secondSection {
+        padding: 0;
+    }
+
+
+    .home .firstSection .row .col-12 .second_animation_box h1 {
+        font-size: 2.5rem;
+    }
+
+
+    .home .firstSection .row {
+        align-items: center;
+        padding: 0px 0px 0px 0px;
+    }
+
+
+    .home .firstSection .row .col-12 {
+        padding: 0px 10px;
+    }
+
+    .home .firstSection .row .firstcolumn {
+        background-color: transparent;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 50px;
+    }
+
+
+    .home .firstSection .abstract_image {
+        right: 52%;
+        width: 180px;
+    }
+
+    .home .firstSection .abstract_image2 {
+        right: 2%;
+        width: 180px;
+    }
+
+    /* Keyframes for h1 */
+    @keyframes imageanimation {
+        from {
+            /* transform: translateY(-100%) scale(1); */
+            bottom: 35%;
+            opacity: 0;
+        }
+        to {
+            /* transform: translateY(0%) scale(1); */
+            bottom: 45%;
+            opacity: 1;
+        }
+    }
+    /*  */
+
+
+    /* Keyframes for h1 */
+    @keyframes image2animation {
+        from {
+            /* transform: translateY(-100%) scale(1); */
+            bottom: 50%;
+            opacity: 0;
+        }
+        to {
+            /* transform: translateY(0%) scale(1); */
+            bottom: 60%;
+            opacity: 1;
+        }
+    }
+    /*  */
+
+}
+
+
+/* Max Width :  756px */
+@media screen and (max-width: 320px) {
+
+
+    .home .firstSection .row .col-12 .second_animation_box h1 {
+        font-size: 2.0rem;
+    }
+
+
+    .home .firstSection .row {
+        align-items: flex-end;
+        /* padding: 0px 0px 0px 0px; */
+    }
+
+
+    .home .firstSection .row .col-12 {
+        padding: 0px 10px;
+    }
+
+    .home .firstSection .row .firstcolumn {
+        padding-bottom: 20px;
+    }
+
+    .home .firstSection .abstract_image {
+        right: 56%;
+        width: 120px;
+    }
+
+    .home .firstSection .abstract_image2 {
+        right: 10%;
+        width: 120px;
+    }
+
+    /* Keyframes for h1 */
+    @keyframes imageanimation {
+        from {
+            /* transform: translateY(-100%) scale(1); */
+            bottom: 45%;
+            opacity: 0;
+        }
+        to {
+            /* transform: translateY(0%) scale(1); */
+            bottom: 55%;
+            opacity: 1;
+        }
+    }
+    /*  */
+
+
+    /* Keyframes for h1 */
+    @keyframes image2animation {
+        from {
+            /* transform: translateY(-100%) scale(1); */
+            bottom: 48%;
+            opacity: 0;
+        }
+        to {
+            /* transform: translateY(0%) scale(1); */
+            bottom: 58%;
+            opacity: 1;
+        }
+    }
+    /*  */
+
+}
+
