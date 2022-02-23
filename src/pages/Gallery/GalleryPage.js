@@ -2,7 +2,7 @@ import React ,{useEffect,useState} from 'react';
 import './GalleryPage.css';
 // import ImageModal from './ImageModal';
 
-function GalleryPage() {
+function GalleryPage(props) {
 
     var [offset,setOffset] = useState(0);
     var [image_array,setImageArray] = useState([]);
@@ -14,11 +14,15 @@ function GalleryPage() {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         };
-        fetch(`http://192.168.1.16:3000/getCategories`, requestOptions).then(response => response.json()).then((result) => {
+        fetch(`${props.backendurl}/getCategories`, requestOptions).then(response => response.json()).then((result) => {
             console.log(result);
             for(var i=0;i<result.data.length;i++) {
                 var node = document.createElement('A');
-                node.setAttribute('class','inner_tabs');
+                if(props.selectedTab === result.data[i].name){
+                    node.setAttribute('class','inner_tabs selected_tab');
+                } else {
+                    node.setAttribute('class','inner_tabs');
+                }
                 node.innerHTML = result.data[i].name
                 document.getElementById('tabs').appendChild(node);
             }
@@ -54,20 +58,14 @@ function GalleryPage() {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         };
-        fetch(`http://192.168.1.16:3000/getImages/1/${inneroffset}`, requestOptions).then(response => response.json()).then((result) => {
+        fetch(`${props.backendurl}/getImages/1/${inneroffset}`, requestOptions).then(response => response.json()).then((result) => {
             // console.log(result);
             const windowWidth = window.innerWidth;
             for(var i=0;i<result.data.length;i++){
-                image_array.push('http://192.168.1.16:3000' + result.data[i].path);
+                image_array.push(`${props.backendurl}` + result.data[i].path);
                 var node = document.createElement("IMG");
-                node.setAttribute('src','http://192.168.1.16:3000' + result.data[i].path);
+                node.setAttribute('src',`${props.backendurl}` + result.data[i].path);
                 node.setAttribute('class','gallery_image');
-                // node.setAttribute('onclick',openImage(`${'http://192.168.1.16:3000' + result.data[i].path}`));
-                // node.addEventListener('click',() => {
-                //     // var path = node.getAttribute('src');
-                //     // openImage(path);
-                //     console.log(node);
-                // });
                 if(windowWidth <= 768){
                     if(i%2 === 0){
                         document.getElementById('column_one').appendChild(node);
@@ -101,13 +99,13 @@ function GalleryPage() {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         };
-        fetch(`http://192.168.1.16:3000/getImagesByCategories/${category}/${inneroffset}`, requestOptions).then(response => response.json()).then((result) => {
+        fetch(`${props.backendurl}/getImagesByCategories/${category}/${inneroffset}`, requestOptions).then(response => response.json()).then((result) => {
             // console.log(result);
             const windowWidth = window.innerWidth;
             for(var i=0;i<result.data.length;i++){
-                image_array.push('http://192.168.1.16:3000' + result.data[i].path);
+                image_array.push(`${props.backendurl}` + result.data[i].path);
                 var node = document.createElement("IMG");
-                node.setAttribute('src','http://192.168.1.16:3000' + result.data[i].path);
+                node.setAttribute('src',`${props.backendurl}` + result.data[i].path);
                 node.setAttribute('class','gallery_image');
                 if(windowWidth <= 768){
                     if(i%2 === 0){
@@ -185,9 +183,14 @@ function GalleryPage() {
                 </div> */}
             </div>
         </div>
-        <br/>
+        <br/><br/>
+        <br/><br/>
         <div className='tabs' id='tabs'>
-            <a className='inner_tabs selected_tab'>All</a>
+            { 
+                props.selectedTab !== 'All' ?
+                <a className='inner_tabs'>All</a> 
+                : <a className='inner_tabs selected_tab'>All</a>
+            }
         </div>
         <div className='row'>
             <div className="col-lg-4 col-md-4 col-sm-6 col-6" id="column_one">

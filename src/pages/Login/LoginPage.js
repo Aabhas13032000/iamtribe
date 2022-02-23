@@ -1,114 +1,95 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './LoginPage.css';
-import { useLocation, Link,useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function LoginPage(props) {
-    var history = useHistory();
-    const location = useLocation();
+    // var history = useHistory();
+    // const location = useLocation();
     const signUpImage = require('../../images/signup.png');
     const maxLength = 8;
     const minLength = 8;
+    const [newuser,setUser] = useState({});
 
-    // function checkpassword() {
-    //     var password = document.getElementById('password').value;
-    //     var c_password = document.getElementById('c_password').value;
-    //     if(c_password.length === 8) {
-    //         if(password === c_password) {
-    //             if(document.getElementById('c_password').classList.contains('is-invalid')){
-    //                 document.getElementById('c_password').classList.remove('is-invalid')
-    //             }
-    //             if(document.getElementsByClassName('error_message')[0].classList.contains('active_error_message')){
-    //                 document.getElementsByClassName('error_message')[0].classList.remove('active_error_message')
-    //             }
-    //             document.getElementById('c_password').classList.add('is-valid');
-    //         } else {
-    //             if(document.getElementById('c_password').classList.contains('is-valid')){
-    //                 document.getElementById('c_password').classList.remove('is-valid')
-    //             }
-    //             document.getElementById('c_password').classList.add('is-invalid');
-    //             document.getElementsByClassName('error_message')[0].innerHTML = '<p>Password is not same !!</p>';
-    //             document.getElementsByClassName('error_message')[0].classList.add('active_error_message');
-    //             setTimeout(()=> {
-    //                 document.getElementsByClassName('error_message')[0].classList.remove('active_error_message');
-    //             },2000);
-    //         }
-    //     } else {
-    //         if(document.getElementById('c_password').classList.contains('is-invalid')){
-    //             document.getElementById('c_password').classList.remove('is-invalid')
-    //         }
-    //         if(document.getElementsByClassName('error_message')[0].classList.contains('active_error_message')){
-    //             document.getElementsByClassName('error_message')[0].classList.remove('active_error_message')
-    //         }
-    //         if(document.getElementById('c_password').classList.contains('is-valid')){
-    //             document.getElementById('c_password').classList.remove('is-valid')
-    //         }
-    //     }
-    // }
-
-    function formSubmit(event) {
-        var name = document.getElementById('name').value;
-        var phone = document.getElementById('phone').value;
+    function checkUser() {
         var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        var c_password = document.getElementById('c_password').value;
-
-        if(name.length !== 0 && phone.length !==0 && email.length !==0 && password.length === 8 && c_password.length === 8 && (password === c_password)) {
+        if(document.getElementById('email').classList.contains('is-invalid')){
+            document.getElementById('email').classList.remove('is-invalid')
+        }
+        if(document.getElementById('email').classList.contains('is-valid')){
+            document.getElementById('email').classList.remove('is-valid')
+        }
+        if(email.includes('@')){
+            // console.log(email);
             const requestOptions = {
-                method: 'POST',
+                method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    name: name,
-                    phone:phone,
-                    email:email,
-                    password:password,
-                    role_id: (location.pathname === '/signupascustomer' ? 3 : 2),
-                }),
             };
-            fetch('http://localhost:3000/signupascustomer', requestOptions).then(response => response.json()).then((result) => {
-                console.log(result);
-                document.getElementsByClassName('error_message')[0].innerHTML = '<p>Registered Successfully !!</p>';
-                document.getElementsByClassName('error_message')[0].classList.add('active_error_message');
-                setTimeout(()=> {
-                    document.getElementsByClassName('error_message')[0].classList.remove('active_error_message');
-                },1000);
-                setTimeout(()=> {
-                    history.replace('/');
-                },1500);
-            }).catch((err) => {
-                console.log(err);
-            })
-        } else {
-            if(document.getElementById('c_password').classList.contains('is-invalid')){
-                document.getElementById('c_password').classList.remove('is-invalid')
-            }
-            if(document.getElementsByClassName('error_message')[0].classList.contains('active_error_message')){
-                document.getElementsByClassName('error_message')[0].classList.remove('active_error_message')
-            }
-            if(document.getElementById('c_password').classList.contains('is-valid')){
-                document.getElementById('c_password').classList.remove('is-valid')
-            }
-            if(password.length !==8 || c_password.length !==8){
-                document.getElementById('c_password').classList.add('is-invalid');
-                document.getElementsByClassName('error_message')[0].innerHTML = '<p>Password is must contains 8 alphabates same !!</p>';
-                document.getElementsByClassName('error_message')[0].classList.add('active_error_message');
-                setTimeout(()=> {
-                    document.getElementsByClassName('error_message')[0].classList.remove('active_error_message');
-                },2000);
-            } else {
-                if(password !== c_password) {
-                    document.getElementById('c_password').classList.add('is-invalid');
-                    document.getElementsByClassName('error_message')[0].innerHTML = '<p>Password is not same !!</p>';
+            fetch(`${props.backendurl}/users/checkUser/${email}`, requestOptions).then(response => response.json()).then((result) => {
+                // console.log(result);
+                if(result.data.length === 0){
+                    document.getElementById('email').classList.add('is-invalid');
+                    document.getElementsByClassName('error_message')[0].innerHTML = '<p>This email is not registered!!</p>';
                     document.getElementsByClassName('error_message')[0].classList.add('active_error_message');
                     setTimeout(()=> {
                         document.getElementsByClassName('error_message')[0].classList.remove('active_error_message');
                     },2000);
                 } else {
-                    document.getElementsByClassName('error_message')[0].classList.add('active_error_message');
-                    document.getElementsByClassName('error_message')[0].innerHTML = '<p>Please check the form before submitting !!</p>';
-                    setTimeout(()=> {
-                        document.getElementsByClassName('error_message')[0].classList.remove('active_error_message');
-                    },2000);
+                    document.getElementById('email').classList.add('is-valid');
+                    setUser(result.data[0]);
                 }
+                // setcategory(result.data);
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+    }
+
+    function formSubmit(event) {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        if(document.getElementById('email').classList.contains('is-invalid')){
+            document.getElementById('email').classList.remove('is-invalid');
+        }
+        if(document.getElementById('email').classList.contains('is-valid')){
+            document.getElementById('email').classList.remove('is-valid');
+        }
+        if(document.getElementById('password').classList.contains('is-invalid')){
+            document.getElementById('password').classList.remove('is-invalid');
+        }
+        if(document.getElementById('password').classList.contains('is-valid')){
+            document.getElementById('password').classList.remove('is-valid');
+        }
+        if(document.getElementsByClassName('error_message')[0].classList.contains('active_error_message')){
+            document.getElementsByClassName('error_message')[0].classList.remove('active_error_message')
+        }
+
+        if(email === newuser.email && password === newuser.password) {
+            document.getElementById('email').classList.add('is-valid');
+            document.getElementById('password').classList.add('is-valid');
+            props.updateLogin(newuser);
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    token:newuser.token,
+                }),
+            };
+            fetch(`${props.backendurl}/users/updateLoginStatus`, requestOptions).then(response => response.json()).then((result) => {
+                console.log(result);
+                setTimeout(() => {
+                    window.location.href = '/';
+                },1000)
+            }).catch((err) => {
+                console.log(err);
+            });
+        } else {
+            if(password !== newuser.password) {
+                document.getElementById('password').classList.add('is-invalid');
+                document.getElementsByClassName('error_message')[0].innerHTML = '<p>Password does not matched!!</p>';
+                document.getElementsByClassName('error_message')[0].classList.add('active_error_message');
+                setTimeout(()=> {
+                    document.getElementsByClassName('error_message')[0].classList.remove('active_error_message');
+                },2000);
             }
         }
 
@@ -132,10 +113,10 @@ function LoginPage(props) {
                         <form onSubmit={formSubmit} method='post'>
                             <div style={{width : '100%'}}>
                             <div className='form-group'>
-                                <input type='email' className='form-control' name='email' id='email' placeholder='Email..' />
+                                <input type='email' className='form-control' name='email' id='email' onKeyUp={checkUser} placeholder='Email..' />
                             </div>
                             <div className='form-group'>
-                                <input type='password' className='form-control' name='password' id='password' placeholder='Password..' maxLength={maxLength} minLength={minLength} />
+                                <input type='password' className='form-control' name='password' id='password' placeholder='Password..' maxLength={maxLength} minLength={minLength} autoComplete='on'/>
                             </div>
                             <div className='buttons'>
                                 <div className='forSignup_as_customer'>

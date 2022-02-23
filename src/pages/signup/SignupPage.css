@@ -63,6 +63,16 @@
     cursor: pointer;
 }
 
+.outerBox .otp_box .form .valid_otp {
+    border: 1px solid green !important;
+    outline: green solid 1px;
+}
+
+.outerBox .otp_box .form .notvalid_otp {
+    border: 1px solid red !important;
+    outline: red solid 1px;
+}
+
 .outerBox .otp_box .form .close_otp_box {
     height: 30px;
     width: 30px;

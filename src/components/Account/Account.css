@@ -1,0 +1,342 @@
+.account {
+    position: relative;
+    /* padding: 0px 10px; */
+    height: 100vh;
+    /* background-color: aqua; */
+    overflow: hidden;
+}
+
+.submitImagePopupBackground {
+    position: fixed;
+    z-index: 20;
+    background-color: rgba(14, 31, 48, 0.8);
+    /* filter: blur(200); */
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    display: none;
+}
+
+.activeSubmitImagePopupBackground {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.submitImagePopup {
+    width: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: var(--secondary-color);
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 25;
+    display: none;
+}
+
+.activeSubmitImagePopup {
+    display: block !important;
+}
+
+.submitImagePopup hr {
+    background-color: #808080;
+}
+
+.submitImagePopup .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 12px 0px 12px;
+}
+
+.submitImagePopup .heading h5 {
+    color: var(--unselectedSidebarText-color);
+    font-family: Gilroy-Regular;
+    margin: 0px;
+}
+
+.submitImagePopup .heading a {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.submitImagePopup .heading a:hover {
+    color: white;
+}
+
+.submitImagePopup .heading a .iconify {
+    width: 20px;
+    height: 20px;
+}
+
+.account .cover_image {
+    height: 25%;
+    background-color: var(--secondary-color);
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 20px;
+    /* top: 20px; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* position: absolute; */
+    /* z-index: 0; */
+}
+
+.account .cover_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.account .cover_image .add_image {
+    color: white;
+}
+
+.account .cover_image .add_image h5 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account .cover_image .add_image .iconify {
+    margin-left: 20px;
+    width: 25px;
+    height: 25px;
+}
+
+.account .profile_pic {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid var(--primary-color);
+    position: absolute;
+    top: 28%;
+    left: 30px;
+    z-index: 1;
+}
+
+.account .profile_pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.account .row {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    height: 75%;
+    overflow: hidden;
+}
+
+.account .row .col-lg-3 {
+    padding: 10px 0px;
+    height: 100%;
+    overflow: hidden;
+    /* background-color: #808080; */
+}
+
+.account .row .col-lg-3 .info {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    /* height: 90px; */
+    padding: 20px 10px;
+    position: relative;
+    z-index: 0;
+}
+
+.account .row .col-lg-3 .info .edit_profile {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: var(--contrast-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account .row .col-lg-3 .info .edit_profile a {
+    color: var(--primary-color);
+}
+
+.account .row .col-lg-3 .info .edit_profile a .iconify {
+    width: 25px;
+    height: 25px;
+}
+
+.account .row .col-lg-3 .info h4 {
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+    font-family: Hellix-SemiBold;
+}
+
+.account .row .col-lg-3 .info p {
+    color: var(--unselectedSidebarText-color);
+    text-align: center;
+}
+
+.account .row .col-lg-3 .info .skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.account .row .col-lg-3 .info .skills a {
+    color: var(--primary-color);
+    text-align: center;
+    margin: 10px 5px 10px 5px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    background-color: var(--contrast-color);
+    font-size: 12px;
+}
+
+#imgupload {
+    display: none;
+}
+
+.account .row .col-lg-9 {
+    padding: 10px 0px;
+    height: 100%;
+    /* background-color: #808080; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.account .row .col-lg-9 .uper_tabs {
+    padding: 0px 10px;
+}
+
+.account .row .col-lg-9 .uper_tabs .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.account .row .col-lg-9 .uper_tabs .tabs .each_tab {
+    /* background-color: var(--contrast-color); */
+    /* color: var(--primary-color); */
+    border-radius: 50px;
+    padding: 5px 10px;
+    margin-right: 0px;
+    /* color: white; */
+    color: #808080;
+}
+
+.account .row .col-lg-9 .uper_tabs hr {
+    background-color: #808080;
+    margin: 10px;
+}
+
+.account .row .col-lg-9 .uper_tabs .tabs .selected_tab {
+    color: white;
+}
+
+.account .row .col-lg-9 .data_tab {
+    /* overflow-y: scroll; */
+    /* overflow-x: hidden; */
+    /* height: 100%; */
+}
+
+.account .row .col-lg-9 .data_tab img{
+    /* height: 100%; */
+    /* overflow: hidden; */
+    width: 100%;
+    object-fit: cover;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
+
+.account .row .col-lg-9 .data_tab .col-12 {
+    color: white;
+    /* height: 200px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0px;
+}
+
+.account .row .col-lg-9 .data_tab .col-12 .add_image h5 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.account .row .col-lg-9 .data_tab .col-12 .add_image .iconify {
+    margin-left: 20px;
+    width: 25px;
+    height: 25px;
+}
+
+.data_tab .col-lg-4 img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px 0px;
+}
+
+/* Max Width :  768px */
+@media screen and (max-width: 992px) {
+    .submitImagePopup {
+        width: 80%;
+    }
+}
+
+/* Max Width :  768px */
+@media screen and (max-width: 768px) {
+    .submitImagePopup {
+        width: 100%;
+    }
+
+    .account {
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .account .row {
+         /* overflow-y: scroll; */
+         overflow: unset;
+         height: auto;
+    }
+
+    .account .row .col-lg-3 {
+        padding: 10px 0px;
+        height: unset;
+        overflow: hidden;
+    }
+    
+    .account .row .col-lg-9 {
+        padding: 10px 0px;
+        height: unset;
+    }
+
+    .account .row .col-lg-9 .uper_tabs {
+        padding: 0px;
+    }
+}

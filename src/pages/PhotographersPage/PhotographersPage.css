@@ -1,0 +1,107 @@
+.photographers .search {
+    margin-top: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.photographers .search .heading h3 {
+    color: white;
+    font-family: Gilroy-Regular;
+    margin: 0;
+}
+
+.photographers .search .form-group {
+    margin: 15px 0px;
+    /* width: 2.5rem; */
+    width: 400px;
+    height: 50px;
+}
+
+.photographers .search .form-group .form-control {
+    border: 1px solid #B4BEC8;
+    background-color: var(--secondary-color);
+    color: #B4BEC8;
+    padding: 13px 20px;
+    width: 100%;
+    border-radius: 8px;
+    /* text-align: center; */
+}
+
+.photographers .search .form-group .form-control:focus {
+    border: 1px solid var(--primary-color);
+    outline: none;
+}
+
+.photographers .each .col-lg-4 {
+    padding: 10px;
+}
+
+.photographers .each .col-lg-4 .profile_card {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 120px;
+}
+
+.photographers .each .col-lg-4 .profile_card .col-4 {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #B4BEC8; */
+}
+
+.photographers .each .col-lg-4 .profile_card .col-4 .image {
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photographers .each .col-lg-4 .profile_card .col-4 .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photographers .each .col-lg-4 .profile_card .col-8 {
+    padding: 0px 10px 0px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.photographers .each .col-lg-4 .profile_card .col-8 h5 {
+    color: white;
+    font-family: Hellix-Medium;
+    /* margin-top: 20px; */
+}
+
+.photographers .each .col-lg-4 .profile_card .col-8 p {
+    color: var(--unselectedSidebarText-color);
+    font-family: Gilroy-Regular;
+    margin: 10px 0px 0px 0px;
+    font-size: 14px;
+}
+
+/* Max Width :  992px */
+@media screen and (max-width: 767px) {
+
+    .photographers .search {
+        display: block;
+        margin-top: 110px;
+    }
+
+    .photographers .search .form-group {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .photographers .each .col-lg-4 {
+        padding: 10px 0px;
+    }
+    
+}

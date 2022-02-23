@@ -14,6 +14,7 @@
     animation-duration: 0.8s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+    top: 0;
 }
 
 
@@ -95,7 +96,7 @@
 
 .header .container .login ul li {
     float: left;
-    margin-right: 20px;
+    margin-right: 0px;
     font-family: Hellix-SemiBold;
     font-size: 16px;
 }
@@ -120,6 +121,11 @@
     border: 0px;
     padding: 0px 0px;
     display: block;
+    margin-right: 0px;
+}
+
+.portfolio-img p {
+    color: white;
 }
 
 .header .container .login ul li .portfolio-img .card {
@@ -142,6 +148,7 @@
     border-radius: 10px;
     color: var(--primary-color);
     display: block;
+    margin-right: 20px;
 }
 
 .header .container .login ul li .toggle_button {
@@ -186,6 +193,10 @@
     
     .header .container .login ul li .portfolio {
         display: none;
+    }
+
+    .header .container .login ul li .portfolio-img {
+        margin-right: 20px;
     }
     
     .header .container .login ul li .get_in_touch {

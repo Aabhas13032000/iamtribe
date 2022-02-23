@@ -1,0 +1,119 @@
+.profile_view .heading h3{
+    margin: 0;
+    color: white;
+    font-family: Hellix-Medium;
+}
+
+.profile_view .heading p{
+    margin: 0;
+    color: white;
+    font-family: Hellix-Regular;
+    color: var(--unselectedSidebarText-color);
+}
+
+.profile_view hr {
+    background-color: #bebebe;
+    width: 20%;
+}
+
+.profile_view .form h6{
+    margin: 0;
+    color: white;
+    font-family: Hellix-Regular;
+}
+
+.profile_view .form .col-lg-2 {
+    display: flex;
+    align-items: center;
+}
+
+.profile_view .form .form-control {
+    background-color: var(--secondary-color);
+    border: 0;
+    color: #B4BEC8;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.profile_view .form .gender {
+    display: flex;
+}
+
+.profile_view .form .gender .gender_inside {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    margin-right: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile_view .form .gender .selected_gender {
+    outline: 3px solid var(--contrast-color);
+    outline-offset: 2px;
+}
+
+.profile_view .form .gender .gender_inside img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile_view .form .profile_picture {
+    position: relative;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile_view .form .profile_picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile_view .form .profile_picture .camera_icon {
+    background-color: var(--contrast-color);
+    height: 40px;
+    width: 40px;
+    border-radius: 8px 0px 0px 0px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2px 5px;
+    box-shadow: -2px -2px 5px rgba(0,0,0,0.08);
+}
+
+
+.profile_view .form .col-lg-8,.col-lg-2 {
+    margin-top: 10px;
+}
+
+.profile_view .form .profile_picture .camera_icon a .iconify {
+    color: var(--primary-color);
+    height: 22px;
+    width: 22px;
+}
+
+.profile_view .form .form-check-label {
+    color: white;
+}
+
+.profile_view .form .btn {
+    background-color: var(--contrast-color);
+    border: 0;
+    width: 100%;
+    color: var(--primary-color);
+    border-radius: 8px;
+    padding: 13px;
+}
+
+#imgupload {
+    display: none;
+}

@@ -4,15 +4,16 @@ import { Link , useLocation } from 'react-router-dom';
 
 function MainNavigation(props) {
     const location = useLocation();
+    const profileImage = require('../../images/female.png');
 
     function toggle_navbar() {
         // console.log('hello');
         props.onToggle();
     }
 
-    function clickedgetintouch() {
-        props.onClickGetINTouch();
-    }
+    // function clickedgetintouch() {
+    //     props.onClickGetINTouch();
+    // }
 
     return <header className="header">
         <div className='container'>
@@ -32,7 +33,8 @@ function MainNavigation(props) {
                     {location.pathname === '/blogs' ? <Link to='/blogs' className="inside_links active">Blog</Link> : <Link to='/blogs' className="inside_links">Blog</Link>}
                 </li>
                 <li>
-                    {location.pathname === '/' ? <a onClick={clickedgetintouch} className="inside_links">Get in touch</a> : <Link to='/' className="inside_links">Get in touch</Link>}
+                    {/* {location.pathname === '/' ? <a onClick={clickedgetintouch} className="inside_links">Get in touch</a> : <Link to='/' className="inside_links">Get in touch</Link>} */}
+                    {location.pathname === '/photographers' ? <Link to='/photographers' className="inside_links active">Photographers</Link> : <Link to='/photographers' className="inside_links">Photographers</Link>}
                 </li>
             </ul>
         </div>
@@ -53,7 +55,7 @@ function MainNavigation(props) {
                         props.user.name != null
                         ? <Link to='/profile' className="portfolio-img">
                             <div className='card'>
-                                <img src={props.user.profile_pic} alt='profile_image' />
+                                <img src={props.user.profile_pic !== null ? props.user.profile_pic : profileImage} alt='profile_image' />
                             </div>
                         </Link>
                         :<Link to='/login' className="portfolio">Login</Link>
